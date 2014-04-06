@@ -1,6 +1,6 @@
-get '/' do
-  # render home page
- #TODO: Show all users if user is signed in
+get '/' do	
+	 @current = session[:user_id]
+	@all_users = User.all	
   erb :index
 end
 
@@ -12,12 +12,15 @@ end
 
 post '/sessions' do
   @valid_user = User.authenticate_user(params[:email], params[:password])
- 	p @valid_user
-  erb :index
+ 	if @valid_user != nil
+ 		session[:user_id] = @valid_user.id
+ 	end	
+  redirect '/'
 end
 
 delete '/sessions/:id' do
-  # sign-out -- invoked 
+  session.clear
+  redirect '/'
 end
 
 #----------- USERS -----------
@@ -28,6 +31,6 @@ end
 
 post '/users' do
   @user = User.new(params[:user])
-  # @user.password = params[:password]
+  @user.password = params[:password]
   @user.save
 end

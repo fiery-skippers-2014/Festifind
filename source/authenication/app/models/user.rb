@@ -16,15 +16,9 @@ include BCrypt
   end
 
   def self.authenticate_user(email, password)
-
   	@person = User.find_by_email(email)
-  	p @person
-  	p "ok"
-  	p @person.password
-  	p "hi"
-  	p password
-  	p "hello"
   	if @person && @person.password == password
+  		p @person
       return @person
     else
       return nil

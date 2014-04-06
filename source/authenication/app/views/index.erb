@@ -1,11 +1,17 @@
 <div class="container">
 
-<p><%= @valid_user %></p>
+		<% if current_user != nil %>
+		<% User.all.each do |t| %>
+		<p> <%= t.name %> </p>
+		<% end %>
+		
+	<form method="post" action="/sessions/<%=@current%>">
+	<input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Log me out!" />
+  </form>
+		<% else %>
+			<h4> Welcome, Mr. Logged Out Mwahhahaaa</h4>
+			<h4><%= go %> </h4>
 
-
-
-
-  <%# TODO: 
-  1. If user is not signed in - display "Welcome".
-  2. If user is signed in then  display all users %>
+		<% end %>
   </div>
