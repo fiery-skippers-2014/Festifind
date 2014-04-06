@@ -7,11 +7,13 @@ end
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
-  # render sign-in page 
+  erb :sign_in 
 end
 
 post '/sessions' do
-  # sign-in
+  @valid_user = User.authenticate_user(params[:email], params[:password])
+ 	p @valid_user
+  erb :index
 end
 
 delete '/sessions/:id' do
@@ -21,9 +23,11 @@ end
 #----------- USERS -----------
 
 get '/users/new' do
-  # render sign-up page
+  erb :sign_up
 end
 
 post '/users' do
-  # sign-up a new user
+  @user = User.new(params[:user])
+  # @user.password = params[:password]
+  @user.save
 end
