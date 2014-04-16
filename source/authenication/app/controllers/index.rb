@@ -1,6 +1,4 @@
 get '/' do
-  puts "session id"
-  puts "#{session[:user_id]}"
 	 @current = session[:user_id]
 	@all_users = User.all
   erb :index
@@ -13,15 +11,13 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  puts "Trying to log in"
-  puts "#{params[:email]}"
+
   # @valid_user = User.authenticate_user(params[:email], params[:password])
   @person = User.find_by_email(params[:email])
 
   if @person.password == params[:password]
     session[:user_id] = @person.id
-    p "hoo"
-    p session[:user_id]
+
   end
 
 
