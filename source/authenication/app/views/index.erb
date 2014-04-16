@@ -4,14 +4,13 @@
 		<% User.all.each do |t| %>
 		<p> <%= t.name %> </p>
 		<% end %>
-		
+
 	<form method="post" action="/sessions/<%=@current%>">
 	<input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Log me out!" />
   </form>
 		<% else %>
 			<h4> Welcome, Mr. Logged Out Mwahhahaaa</h4>
-			<h4><%= go %> </h4>
 
 		<% end %>
   </div>

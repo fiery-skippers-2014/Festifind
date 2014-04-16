@@ -1,7 +1,9 @@
-class User < ActiveRecord::Base
-  
-include BCrypt
 
+require 'BCrypt'
+
+
+class User < ActiveRecord::Base
+include BCrypt
   def password
     @password ||= Password.new(password_hash)
   end
@@ -15,13 +17,16 @@ include BCrypt
     User.exists?(:email => email)
   end
 
-  def self.authenticate_user(email, password)
-  	@person = User.find_by_email(email)
-  	if @person && @person.password == password
-  		p @person
-      return @person
-    else
-      return nil
-    end  
-  end
+  # def self.authenticate_user(email, password)
+
+  #   puts "this is the person"
+  #   puts @person
+  #   return nil if @person == nil
+
+  # 	if @person.password == password
+  # 		puts @person
+  #     puts "user was fetched"
+  #     return @person
+  #   end
+  # end
 end

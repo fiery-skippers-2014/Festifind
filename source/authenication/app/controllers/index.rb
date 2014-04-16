@@ -1,20 +1,36 @@
-get '/' do	
+get '/' do
+  puts "session id"
+  puts "#{session[:user_id]}"
 	 @current = session[:user_id]
-	@all_users = User.all	
+	@all_users = User.all
   erb :index
 end
 
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
-  erb :sign_in 
+  erb :sign_in
 end
 
 post '/sessions' do
-  @valid_user = User.authenticate_user(params[:email], params[:password])
- 	if @valid_user != nil
- 		session[:user_id] = @valid_user.id
- 	end	
+  puts "Trying to log in"
+  puts "#{params[:email]}"
+  # @valid_user = User.authenticate_user(params[:email], params[:password])
+  @person = User.find_by_email(params[:email])
+
+  if @person.password == params[:password]
+    session[:user_id] = @person.id
+    p "hoo"
+    p session[:user_id]
+  end
+
+
+  # puts @valid_user
+  # if @valid_user != nil
+  #   puts "logged in"
+ 	# 	session[:user_id] = @valid_user.id
+ 	# end
+  # puts "did not login"
   redirect '/'
 end
 
@@ -30,7 +46,8 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.new(params[:user])
+  @user = User.new(params)
   @user.password = params[:password]
   @user.save
+  redirect '/'
 end
