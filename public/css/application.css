@@ -1,3 +1,9 @@
+body {
+  background-image:url('img/background1.jpg');
+  color: white;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}
+
 .container {
   margin: 20px auto;
   width: 800px;
@@ -6,7 +12,7 @@
 }
 
 .container h1 {
-  font-size: 17pt;
+  font-size: 24pt;
   text-align: center;
 }
 
@@ -51,8 +57,11 @@ form label {
 }
 
 input {
+  color: white;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
   margin-bottom: 10px;
 }
+
 
 .errors {
   color: red;
