@@ -1,0 +1,4 @@
+<% @bands = Band.all %>
+<% @bands.each_with_index do |band| %>
+  <h4><%= band.name %> </h4>
+<% end %>
