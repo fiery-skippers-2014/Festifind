@@ -1,0 +1,20 @@
+<nav>
+    <div class="brand">
+    </div>
+    <ul>
+      <% if current_user %>
+        <li>
+          Welcome back, <%= current_user_name.capitalize %>!
+        </li>
+        <li>
+          <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
+            <input name="_method" type="hidden" value="delete" />
+            <input type="submit" value="Log Out">
+          </form>
+        </li>
+      <% else %>
+        <li class="login"><a href="/sessions/new">Log In</a></li>
+        <li clsas="login"><a href="/users/new">Sign Up</a></li>
+      <% end %>
+    </ul>
+  </nav>
