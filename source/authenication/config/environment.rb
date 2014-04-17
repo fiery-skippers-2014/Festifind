@@ -10,6 +10,9 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+require 'meta-spotify'
+
+require "awesome_print"
 
 require 'pg'
 require 'active_record'

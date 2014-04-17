@@ -1,7 +1,26 @@
-get '/' do
-	 @current = session[:user_id]
-	@all_users = User.all
-  erb :index
+# get '/' do
+
+#    # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
+#     # ap @artist.albums.first.name
+#   @search = MetaSpotify::Artist.search('rush')[:artists][0]
+#   ap @search
+
+
+#    # ap @artist.albums.first.name
+# 	 @current = session[:user_id]
+# 	@all_users = User.all
+#   erb :index
+# end
+
+
+get '/search' do
+  erb :search
+end
+
+post '/search_results' do
+  query = params['query']
+  albums = MetaSpotify::Album.search(query)
+  JSON.dump({albums: albums[:albums].map(&:name)})
 end
 
 #----------- SESSIONS -----------
