@@ -37,6 +37,10 @@ nav ul {
   width: 30%;
   text-align: right;
 }
+li {background-color:blue;width:400px;
+ height:30px;margin:10px;
+ padding:10px;
+ border-radius:20px}
 
 nav li {
   margin-right: 25px;
