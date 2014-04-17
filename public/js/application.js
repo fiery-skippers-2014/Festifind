@@ -8,11 +8,12 @@ $(document).ready(function () {
       url: '/search_results',
       type: 'POST',
       data: {query: search_params }
-    }).done(function(response) {
-      $.parseJSON(response).albums.forEach(function(album){
-        $('.results').append('<li>' + album + '</li>')
-      })
-    })
-  })
+    // }).done(function(response) {
+    //   $.parseJSON(response).albums.forEach(function(album){
+    //     $('.results').append('<li>' + album + '</li>')
+    //   })
+    // })
+  });
+  });
 
 });
