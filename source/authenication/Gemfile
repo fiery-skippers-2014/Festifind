@@ -11,8 +11,12 @@ gem 'sinatra-contrib'
 # Use Thin for our web server
 gem 'thin'
 
+
+gem 'awesome_print'
 gem 'activesupport'
 gem 'activerecord'
+
+gem 'meta-spotify'
 
 gem 'rake'
 gem 'bcrypt'
