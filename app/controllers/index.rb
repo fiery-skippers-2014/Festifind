@@ -1,7 +1,25 @@
 get '/' do
-	@current = session[:user_id]
-	@all_users = User.all
+
+   # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
+    # ap @artist.albums.first.name
+  @search = MetaSpotify::Artist.search('rush')[:artists][0]
+  ap @search
+
+
+   # ap @artist.albums.first.name
+   @current = session[:user_id]
+  @all_users = User.all
   erb :index
+end
+
+get '/search' do
+  erb :search
+end
+
+post '/search_results' do
+  query = params['query']
+  albums = MetaSpotify::Album.search(query)
+  JSON.dump({albums: albums[:albums].map(&:name)})
 end
 
 #----------- SESSIONS -----------
@@ -17,23 +35,18 @@ post '/sessions' do
 
   if @person.password == params[:password]
     session[:user_id] = @person.id
-    redirect '/profile'
+
   end
 
 
-
+  # puts @valid_user
+  # if @valid_user != nil
+  #   puts "logged in"
+  #   session[:user_id] = @valid_user.id
+  # end
+  # puts "did not login"
   redirect '/'
 end
-#Profile page for logged in users
-get '/profile' do
-  erb :profile
-end
-
-
-
-
-
-
 
 delete '/sessions/:id' do
   session.clear
@@ -52,12 +65,3 @@ post '/users' do
   @user.save
   redirect '/'
 end
-
-
-
- # puts @valid_user
-  # if @valid_user != nil
-  #   puts "logged in"
-  #   session[:user_id] = @valid_user.id
-  # end
-  # puts "did not login"
