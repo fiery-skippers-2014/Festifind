@@ -25,7 +25,7 @@ end
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
-  erb :sign_in
+  erb :_log_in
 end
 
 post '/sessions' do

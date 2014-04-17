@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Festifind</title>
+  <title>Groupy</title>
   <link rel="stylesheet" href="/css/normalize.css">
 
   <link rel="stylesheet" href="/css/application.css">
@@ -14,34 +14,17 @@
   <title></title>
 </head>
 <body>
-  <div id="searcharea">
+  <!-- <div id="searcharea">
     <p>Enter the festival you want to check out!</p>
     <input type="search" name="search" id="search" placeholder="search fesitval or artist" />
-  </div>
+  </div> -->
   <div id="update"></div>
   <script src="jquery.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--  -->
 <!--  -->
 
-  <nav>
-    <div class="brand">
-    </div>
-    <ul>
-      <% if current_user %>
-        <li>
-          <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
-            <input name="_method" type="hidden" value="delete" />
-            <input type="submit" value="Sign Out">
-          </form>
-        </li>
-      <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
-      <% end %>
-    </ul>
-  </nav>
-
+  <%= erb :_navbar %>
   <%= yield %>
 </body>
 </html>

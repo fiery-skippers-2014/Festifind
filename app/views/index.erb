@@ -1,15 +1,8 @@
 <div class="container">
 	<% if current_user != nil %>
-    <h1> Welcome to Festifind...Please log in!</h1>
-		<% User.all.each do |t| %>
-		  <p> <%= t.name %> </p>
-		<% end %>
+    <%= erb :_profile_page %>
 
-	<form method="post" action="/sessions/<%=@current%>">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Log me out!" />
-  </form>
-		<% else %>
-			<h1> Visit again soon, Groupy!</h1>
-		<% end %>
-  </div>
+  <% else %>
+    <p><h1 id="header"> Welcome to Groupy!</h1></p>
+	<% end %>
+</div>

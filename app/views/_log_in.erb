@@ -1,0 +1,15 @@
+<div class="container">
+
+  <% if @error %>
+    <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form id="login" method="post" action="/sessions">
+    <h1>Please log in!</h1>
+    <input type="email" name="email" placeholder="email" value="<%= @email %>"><br>
+    <input type="password" name="password" placeholder="password">
+    <br>
+    <input type="submit" class="submit" value="Log In">
+  </form>
+
+</div>
