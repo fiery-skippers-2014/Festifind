@@ -19,12 +19,15 @@ gem 'awesome_print'
 gem 'activesupport'
 gem 'activerecord'
 
+gem 'faraday'
 gem 'meta-spotify'
 
 gem 'rake'
 gem 'bcrypt'
 
 gem 'shotgun'
+
+gem 'flickr_fu'
 
 group :test do
   gem 'shoulda-matchers'
