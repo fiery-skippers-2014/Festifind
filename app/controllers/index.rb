@@ -3,13 +3,12 @@ get '/' do
    # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
 
     # ap @artist.albums.first.name
-  @search = MetaSpotify::Artist.search('rush')[:artists][0]
-  ap @search
-
+  # @search = MetaSpotify::Artist.search('rush')[:artists][0]
+  # ap @search
 
    # ap @artist.albums.first.name
-   @current = session[:user_id]
-  @all_users = User.all
+    @current = session[:user_id]
+    @all_users = User.all
 
   erb :index
 end
@@ -56,7 +55,7 @@ post '/sessions' do
 end
 
 delete '/sessions/:id' do
-  session.clear
+  session[:user_id] = nil
   redirect '/'
 end
 
