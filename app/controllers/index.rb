@@ -1,8 +1,12 @@
+
+
 get '/' do
+
   @current = session[:user_id]
   # @all_users = User.all
   erb :index
 end
+
 
 get '/search' do
   erb :search

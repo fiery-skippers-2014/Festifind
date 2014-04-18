@@ -19,6 +19,7 @@ gem 'awesome_print'
 gem 'activesupport'
 gem 'activerecord'
 
+gem 'faraday'
 gem 'meta-spotify'
 
 gem 'rake'

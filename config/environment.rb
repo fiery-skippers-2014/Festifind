@@ -14,7 +14,7 @@ require 'meta-spotify'
 
 
 
-
+require 'faraday'
 require 'twitter'
 require 'tweetstream'
 
