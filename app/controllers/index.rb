@@ -1,5 +1,6 @@
 get '/' do
    # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
+   
     # ap @artist.albums.first.name
   @search = MetaSpotify::Artist.search('rush')[:artists][0]
   ap @search
