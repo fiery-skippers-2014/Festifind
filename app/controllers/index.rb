@@ -1,6 +1,7 @@
 get '/' do
    # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
     # ap @artist.albums.first.name
+  session.clear
   @search = MetaSpotify::Artist.search('rush')[:artists][0]
   ap @search
 
@@ -68,4 +69,20 @@ post '/users' do
   @user.password = params[:password]
   @user.save
   redirect '/'
+end
+
+#-----------------Artists------------
+
+get '/artists/:artist_name' do
+  # Gets the artist name
+  @musician = params[:artist_name]
+  puts @musician
+
+  # Updates the twitter feed with the info
+  @tweets = Tweet.where(["created_at < ?", 1.minute.ago])
+   delete_older_tweets(@tweets)
+    more_tweets(@musician)
+
+
+  erb :fan_page
 end
