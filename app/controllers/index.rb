@@ -62,3 +62,40 @@ post '/users' do
   @user.save
   redirect '/'
 end
+
+#-----------------Artists------------
+
+get '/artists/:artist_name' do
+  # Gets the artist name
+  @musician = params[:artist_name]
+  puts @musician
+
+  # Updates the twitter feed with the info
+  #deletes the older ones
+  @tweets = Tweet.where(["created_at < ?", 1.minute.ago])
+   delete_older_tweets(@tweets)
+   puts params[:artist_name].class
+
+   #gets some new ones
+    more_tweets(params[:artist_name])
+
+
+  erb :fan_page
+end
+
+#------------------Tweet------------
+
+get '/tweet' do
+
+  #for debugging purposes
+  puts "gets to the route"
+
+  random_number = (0..4).to_a.sample
+ @tweets = Tweet.all
+ puts @tweets[random_number]
+ @tweet = @tweets[random_number]
+ puts @tweet.content
+ @tweet.to_json
+end
+
+
