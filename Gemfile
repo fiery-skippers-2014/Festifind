@@ -22,6 +22,8 @@ gem 'bcrypt'
 
 gem 'shotgun'
 
+gem 'flickr_fu'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
