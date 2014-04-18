@@ -81,12 +81,12 @@ get '/artists/:artist_name' do
 
   # Updates the twitter feed with the info
   #deletes the older ones
-  # @tweets = Tweet.where(["created_at < ?", 1.minute.ago])
-  #  delete_older_tweets(@tweets)
-  #  puts params[:artist_name].class
+  @tweets = Tweet.where(["created_at < ?", 1.minute.ago])
+   delete_older_tweets(@tweets)
+   puts params[:artist_name].class
 
    #gets some new ones
-    # more_tweets(params[:artist_name])
+    more_tweets(params[:artist_name])
 
 
   erb :fan_page
