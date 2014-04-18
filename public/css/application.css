@@ -37,6 +37,13 @@ nav ul {
   width: 30%;
   text-align: right;
 }
+.search li {
+ height:30px;margin:10px;
+ padding:10px;
+ border-radius:20px;
+list-style-type: none}
+
+ .search{text-decoration:none;}
 
 nav li {
   margin-right: 25px;

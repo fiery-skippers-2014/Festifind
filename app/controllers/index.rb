@@ -1,5 +1,4 @@
 get '/' do
-
    # @artist = MetaSpotify::Artist.lookup('spotify:artist:4YrKBkKSVeqDamzBPWVnSJ', :extras => 'album')
     # ap @artist.albums.first.name
   @search = MetaSpotify::Artist.search('rush')[:artists][0]
@@ -18,8 +17,13 @@ end
 
 post '/search_results' do
   query = params['query']
-  albums = MetaSpotify::Album.search(query)
-  JSON.dump({albums: albums[:albums].map(&:name)})
+
+  artists = MetaSpotify::Artist.search(query)
+
+  top_10_artists = artists[:artists][0..2]
+  # [0..10]
+  ap top_10_artists
+  {artists: top_10_artists}.to_json
 end
 
 #----------- SESSIONS -----------
