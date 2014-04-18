@@ -107,13 +107,28 @@ input {
   color: black;
 }
 
-#fb {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 7%;
+
+
+
+.flickr ul
+{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+}
+.flickr ul li
+{
+        border-bottom: 0;
+        margin: 0;
+        padding: 0;
 }
 
-ul li .results {
-  color: red;
+.flickr_photo
+{
+        width: 75px;
+        height: 75px;
+        padding: 12px 10px 32px 13px;
+        margin: 0;
+        background: #fff url(../images/pixellated/polaroid.jpg) no-repeat;
 }
+

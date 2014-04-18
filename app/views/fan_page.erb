@@ -12,10 +12,18 @@
 
   <br>
 
-  <h2>Add more bands to your list here:</h2>
+  <h2>Add more bands to your list here: <%= erb :_back_link %>
+</h2>
     <a href=""><%= erb :_band_list %></a>
-
   <br>
-  <%= erb :_search_bands_field %>
+
+
+  <% @photos = band_photos(@musician, 12).in_groups_of(3) %>
+
+  <%= erb :_flicker_sidebar_widget %>
+
+
+
+
 
 </div>
