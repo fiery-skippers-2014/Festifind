@@ -11,11 +11,8 @@ $(document).ready(function () {
 
     })
      .done(function(response) {
-
       artists = JSON.parse(response)
-
       clean_artists = artists.artists
-
       var delete_list = document.querySelector('.results')
 
       while(delete_list.firstChild){
@@ -27,6 +24,7 @@ $(document).ready(function () {
         console.log(value.name)
         $('.results').append('<li><a href="artists/'+single_string+'">" '+value.name+' "</a></li>')
       })
+
      })
   })
 });
