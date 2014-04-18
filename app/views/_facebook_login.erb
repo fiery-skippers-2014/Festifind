@@ -20,9 +20,10 @@
       // login status of the person. In this case, we're handling the situation where they
       // have logged in to the app.
       // testAPI();
-      console.log("hey we logged in")
       FB.api('/me', function(response) {
         console.log(response)
+        User.find_by_email(response.email)
+
       });
 
     } else if (response.status === 'not_authorized') {
