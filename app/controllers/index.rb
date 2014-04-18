@@ -15,6 +15,12 @@ get '/search' do
   erb :search
 end
 
+get '/bands/:band' do
+p params[:band]
+
+end
+
+
 post '/search_results' do
   query = params['query']
 
