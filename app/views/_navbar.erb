@@ -10,6 +10,7 @@
           <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
             <input name="_method" type="hidden" value="delete" />
             <input type="submit" value="Log Out">
+            <a href="/" onclick="FB.logout();">Logout of Facebook</a>
           </form>
         </li>
       <% else %>
