@@ -2,6 +2,7 @@
 
 get '/' do
 
+
   @current = session[:user_id]
   # @all_users = User.all
   erb :index
@@ -11,6 +12,7 @@ end
 get '/search' do
   erb :search
 end
+
 
 get '/bands/:band' do
 p params[:band]
@@ -56,7 +58,7 @@ post '/sessions' do
 end
 
 delete '/sessions/:id' do
-  session.clear
+  session[:user_id] = nil
   redirect '/'
 end
 
