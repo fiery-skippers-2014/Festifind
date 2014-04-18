@@ -2,7 +2,7 @@ body {
   background-image:url('img/background1.jpg');
   color: white;
   opacity: 0.9;
-  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+
 }
 
 .container {
@@ -41,7 +41,21 @@ padding-left: 50px;
   width:500px;
   border:1px solid white;
 }
-
+input {
+    border: 5px solid white;
+    -webkit-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
 .profile_page {
   margin-left:auto;
   margin-right: auto;
@@ -116,7 +130,9 @@ input {
   margin-right: 20px;
   width: 200px;
 }*/
-
+.results{
+  padding-left: 0px;
+}
 #sign-out input {
   color: white;
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
