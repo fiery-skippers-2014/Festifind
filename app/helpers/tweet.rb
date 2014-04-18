@@ -11,10 +11,12 @@ helpers do
 
   def more_tweets(artist)
     client = make_twitter
+    puts "this is ok"
     client.search(artist).take(5).collect do |tweet|
+        puts "this too"
          Tweet.create(
         tweet_id: tweet.id,
-        url: tweet.url,
+        # url: tweet.url,
         content: client.oembed(tweet.id).html
         )
       end
