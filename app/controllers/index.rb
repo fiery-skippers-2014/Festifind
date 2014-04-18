@@ -13,9 +13,9 @@ get '/' do
   erb :index
 end
 
-get '/search' do
-  erb :search
-end
+# get '/search' do
+#   erb :search
+# end
 
 post '/search_results' do
   query = params['query']

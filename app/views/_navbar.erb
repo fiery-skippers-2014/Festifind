@@ -4,7 +4,7 @@
     <ul>
       <% if current_user %>
         <li>
-          Welcome back, <%= current_user_name.capitalize %>!
+          Welcome back, <%= current_user_name.split[0].capitalize %>!
         </li>
         <li>
           <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
@@ -13,8 +13,11 @@
           </form>
         </li>
       <% else %>
+
         <li class="login"><a href="/sessions/new">Log In</a></li>
         <li clsas="login"><a href="/users/new">Sign Up</a></li>
+        <br>
+        <li class="login"><%= erb :_facebook_login %></li>
       <% end %>
     </ul>
   </nav>
