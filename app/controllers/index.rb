@@ -17,6 +17,7 @@ end
 
 post '/search_results' do
   query = params['query']
+
   artists = MetaSpotify::Artist.search(query)
 
   top_10_artists = artists[:artists][0..2]

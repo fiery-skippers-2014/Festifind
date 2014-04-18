@@ -8,15 +8,16 @@ $(document).ready(function () {
       url: '/search_results',
       type: 'POST',
       data: {query: search_params }
+
     })
      .done(function(response) {
-  
+
       artists = JSON.parse(response)
 
       clean_artists = artists.artists
 
       var delete_list = document.querySelector('.results')
-      
+
       while(delete_list.firstChild){
         delete_list.removeChild(delete_list.firstChild)
       }
@@ -25,9 +26,13 @@ $(document).ready(function () {
         console.log(value.name)
         $('.results').append('<li>" '+value.name+' "</li>')
       })
- 
+
 
      })
   })
+
+  });
+  });
+
 
 });
