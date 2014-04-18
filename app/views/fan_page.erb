@@ -1,0 +1,21 @@
+<div class="container">
+
+  <h1>OMG ITS <%= @musician %>!!!</h1>
+  <br>
+  <h2>Check out what the groupies are up to!</h2>
+
+  <div class="center">
+                        <a class="button" style="display:block; text-align: center; width: 50%; min-width: 50%;" id="artistLoop">#groupyOn</a>
+                    </div>
+
+<div id="tweetbox"></div>
+
+  <br>
+
+  <h2>Add more bands to your list here:</h2>
+    <a href=""><%= erb :_band_list %></a>
+
+  <br>
+  <%= erb :_search_bands_field %>
+
+</div>
