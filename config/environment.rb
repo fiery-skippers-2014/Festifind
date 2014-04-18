@@ -12,6 +12,12 @@ require 'uri'
 require 'pathname'
 require 'meta-spotify'
 
+
+
+
+require 'twitter'
+require 'tweetstream'
+
 require "awesome_print"
 
 require 'pg'

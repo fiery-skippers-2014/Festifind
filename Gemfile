@@ -11,6 +11,10 @@ gem 'sinatra-contrib'
 # Use Thin for our web server
 gem 'thin'
 
+gem 'twitter'
+gem 'tweetstream'
+gem 'simplecov'
+
 gem 'awesome_print'
 gem 'activesupport'
 gem 'activerecord'
