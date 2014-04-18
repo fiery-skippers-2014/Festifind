@@ -100,7 +100,7 @@ $(document).ready(function () {
         $.each(clean_artists,function(index,value){
           single_string = value.name.replace(/\s/g, "")
 
-         $('.results').append('<li><a href="artists/'+single_string+'">" '+value.name+' "</a></li>')
+         $('.results').append('<li><a class="band" href="artists/'+single_string+'"> '+value.name+' </a></li>')
         })
       }
   }

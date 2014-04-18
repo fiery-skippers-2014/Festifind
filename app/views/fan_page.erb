@@ -1,14 +1,6 @@
 <div class="container">
 
-  <h1>OMG ITS <%= @musician %>!!!</h1>
-  <br>
-  <h2>Check out what the groupies are up to!</h2>
-
-  <div class="center">
-                        <a class="button" style="display:block; text-align: center; width: 50%; min-width: 50%;" id="artistLoop">#groupyOn</a>
-                    </div>
-
-<div id="tweetbox"></div>
+  <h1 id="band_label"><%= @musician %></h1>
 
   <br>
 
@@ -17,13 +9,17 @@
     <a href=""><%= erb :_band_list %></a>
   <br>
 
+  <div class="media_box">
+    <div id="band_imgs">
+      <% @photos = band_photos(@musician, 12).in_groups_of(3) %>
+      <%= erb :_flicker_sidebar_widget %>
+    </div>
 
-  <% @photos = band_photos(@musician, 12).in_groups_of(3) %>
+    <div id="twitter_widget">
+        <a class="button" style="display:block; text-align: center; width: 50%; min-width: 50%;" id="artistLoop">#groupyOn</a>
+        <div id="tweetbox"></div>
+    </div>
 
-  <%= erb :_flicker_sidebar_widget %>
-
-
-
-
+  </div>
 
 </div>
