@@ -11,11 +11,8 @@ $(document).ready(function () {
 
     })
      .done(function(response) {
-
       artists = JSON.parse(response)
-
       clean_artists = artists.artists
-
       var delete_list = document.querySelector('.results')
 
       while(delete_list.firstChild){
@@ -23,15 +20,14 @@ $(document).ready(function () {
       }
 
       $.each(clean_artists,function(index,value){
+        single_string = value.name.replace(/\s/g, "")
         console.log(value.name)
-        $('.results').append('<li>" '+value.name+' "</li>')
+        $('.results').append('<li><a href="artists/'+single_string+'">" '+value.name+' "</a></li>')
       })
-
 
      })
   })
-
-  });
+});
 
 
 
